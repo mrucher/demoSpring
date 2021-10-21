@@ -25,13 +25,15 @@ public class UserController {
     @PostMapping(
             value = "/addUser", consumes = "application/json", produces = "application/json")
     public User addUser(@RequestBody User user) throws Exception {
+        System.out.println(user.getfirstname());
         userService.save(user);
         return user;
     }
 
     @GetMapping(
-            value = "/getUsers", consumes = "application/json", produces = "application/json")
+            value = "/getUsers")
     public List<User> getUsers() throws Exception {
+
         return userService.getUsers();
     }
 }
